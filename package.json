@@ -1,7 +1,7 @@
 {
   "name": "cookieparser",
   "description": "cookieparser",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": [
     "cookie",
     "parse",
@@ -17,7 +17,7 @@
   "homepage": "https://github.com/petkaantonov/cookieparser",
   "repository": {
     "type": "git",
-    "url": "git://github.com/petkaantonov/cookieparser.git"
+    "url": "git://github.com/carlosascari/cookieparser.git"
   },
   "bugs": {
     "url": "http://github.com/petkaantonov/cookieparser/issues"
