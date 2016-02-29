@@ -139,9 +139,9 @@ CookieParser.prototype.parse = function CookieParser$parse(str) {
                     var key = this.extract(str, keyStart, keyEnd);
                     var value = this.extract(str, valueStart, valueEnd);
 
-                    dictionary[key] = valueMightNeedDecoding
-                        ? this.decode(value)
-                        : value;
+                    var pvalue = dictionary[key];
+                    var nvalue = valueMightNeedDecoding ? this.decode(value) : value;
+                    dictionary[key] = (pvalue instanceof Array) ? (pvalue[pvalue.length] = nvalue) : (pvalue ? [pvalue, nvalue] : nvalue);
 
                     i = j;
                     for (; j < len; ++j) {
@@ -169,9 +169,9 @@ CookieParser.prototype.parse = function CookieParser$parse(str) {
             var key = this.extract(str, keyStart, keyEnd);
             var value = this.extract(str, valueStart, valueEnd);
 
-            dictionary[key] = valueMightNeedDecoding
-                ? this.decode(value)
-                : value;
+            var pvalue = dictionary[key];
+            var nvalue = valueMightNeedDecoding ? this.decode(value) : value;
+            dictionary[key] = (pvalue instanceof Array) ? (pvalue[pvalue.length] = nvalue) : (pvalue ? [pvalue, nvalue] : nvalue);
             i = j;
         }
         else if (ch === 59 ||
