@@ -22,6 +22,12 @@ describe("parse", function() {
         assert.deepEqual({ foo: 'bar', abc: "4" }, cookie.parse('foo=bar; abc=4'));
     });
 
+    specify('basic multiple values with the same name', function() {
+        assert.deepEqual({ foo: 'bar', bar: ['foo', 'foo2'] }, cookie.parse('foo=bar; bar=foo;  bar=foo2'));
+        assert.deepEqual({ foo: '123', bar: ['2', '7'] }, cookie.parse('foo=123; bar=2;  bar=7'));
+        assert.deepEqual({ bar: ['2', '7'] }, cookie.parse('bar=2;bar=7'));
+    });
+
     specify('ignore spaces', function() {
         assert.deepEqual(
             foobar,
